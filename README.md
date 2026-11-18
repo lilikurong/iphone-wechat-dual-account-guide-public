@@ -37,6 +37,7 @@ FE0F665C66DC7A6A7F21886CF5BD03C1211636CF0CBA65C056BB414504583B44
 - 一部备用安卓手机：登录需要同步提醒的微信账号，确保微信能产生系统通知。
 - Windows 电脑：安装 iLoader 和苹果设备驱动，首次安装应用时用数据线连接 iPhone。
 - iPhone 安装 SideStore、LocalDevVPN 与 Bark；安卓安装短信转发器 SmsForwarder。
+- 如果所在地区的 App Store 无法下载 LocalDevVPN，准备一个可下载该应用的外区 Apple 账号；本次使用外区账号获取 LocalDevVPN。
 - 可从 Releases 获取本次实验 IPA；若自行重建，需要准备来源和授权可核实的 FChat 8.0.71 IPA 与构建依赖。
 
 免费 Apple 账号的个人开发签名通常只有 7 天有效期，SideStore 也会占用一个侧载应用名额。Apple 对免费个人团队还限制每台设备 3 个应用及一周内 10 个 App ID，详见 [Apple 开发者账号说明](https://developer.apple.com/help/account/basics/about-your-developer-account)。
@@ -135,6 +136,12 @@ FE0F665C66DC7A6A7F21886CF5BD03C1211636CF0CBA65C056BB414504583B44
 ## 三、安装 SideStore 并管理续签
 
 ### 1. 安装和初始化
+
+**准备 LocalDevVPN 的商店账号：**本次通过外区 App Store 下载 LocalDevVPN。先尝试在当前 App Store 搜索；如果无法获取，可使用能下载该应用的外区 Apple 账号，例如查看 [LocalDevVPN 美国区页面](https://apps.apple.com/us/app/localdevvpn/id6755608044)。不同地区的上架情况可能变化；已有应用时不必重复下载。Bark 在[中国大陆 App Store](https://apps.apple.com/cn/app/id1403753865)有页面，并非本方案中必须通过外区下载的应用。
+
+切换时，在 iPhone 的“设置 → 你的姓名 → 媒体与购买项目”中退出当前商店账号，再登录自己的外区账号并安装 LocalDevVPN；安装后可切回原商店账号。这里只切换“媒体与购买项目”，不需要退出 iCloud，见 [Apple 的账号切换说明](https://support.apple.com/zh-cn/108911)。以后更新 LocalDevVPN 可能需要重新登录下载时使用的账号，见 [Apple 的更新说明](https://support.apple.com/zh-cn/111001)；不要使用来历不明的共享账号。若要更改现有账号地区，先阅读 [Apple 的地区更改说明](https://support.apple.com/zh-cn/118283)，其中涉及余额、订阅和付款信息。
+
+外区**商店账号**用于下载 LocalDevVPN，可以与 iLoader 和 SideStore 使用的**签名账号**不同；本次为了管理同一个实验版，iLoader 与 SideStore 使用同一个签名账号。使用外区账号下载 LocalDevVPN 本身不延长签名有效期。
 
 1. 用 iLoader 选择 iPhone 和原先用于签名的 Apple 账号，选择 **SideStore（稳定版）**，按照系统提示完成安装与信任。
 2. iPhone 连接 Wi‑Fi，安装并连接 [LocalDevVPN](https://apps.apple.com/app/id6755608044)。这是供 SideStore 与设备本地安装服务通信的工具，不是用于访问国外网站的代理；SideStore 续签还需要网络访问苹果服务。
